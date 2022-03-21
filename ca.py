@@ -1,7 +1,19 @@
+ #Implement Employee Details
+with open('Employees.txt','w') as f:
+    f.write('''12345 Green Joe 37 16 1.5 72 710''')
+    f.close()
+#Implement Hours Details 
+with open('Hours.txt','w') as f1:
+    f1.write('''12345 31/10/2021  42''')
+    f1.close()
+
 #create employee class and attributes
 class Employee:
-
-    def __init__(self, staffId, Firstname, Lastname, Reghours, Hourlyrate, OTMultiple, Taxcredit, Standardband):
+    Employees = {}
+    Std_rate = 0.2
+    Higher_rate = 0.4
+    
+def __init__(self, staffId, Firstname, Lastname, Reghours, Hourlyrate, OTMultiple, Taxcredit, Standardband):
         self.staffId = int(staffId)
         self.Firstname = str(Firstname)
         self.Lastname = str(Lastname)
@@ -33,3 +45,4 @@ class Employee:
         salary['Net tax'] =round(salary['Total tax'] - salary['Tax credit'], 2)#To calculate Net tax
         salary['PRSI'] = salary['Gross pay'] * 0.4#To calculate PRSI
         return salary
+
