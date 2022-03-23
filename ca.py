@@ -23,7 +23,14 @@ def __init__(self, staffId, Firstname, Lastname, Reghours, Hourlyrate, OTMultipl
         self.Taxcredit = int(Taxcredit)
         self.Standardband = int(Standardband)
 
-    def computepayment(self, Hoursworked, Date):
+
+def configure(Employeesfile):
+        with open(Employeesfile) as f:
+            for line in f:
+                staffId,Firstname,Lastname,Reghours,Hourlyrate,OTMultiple,Taxcredit,Standardband = line.split()
+                Employee.Employees[staffId] = Employee(staffId,Firstname,Lastname,int(Reghours),int(Hourlyrate),float(OTMultiple),int(Taxcredit),int(Standardband))
+
+def computepayment(self, Hoursworked, Date):
         salary = dict()
         salary['Name'] = self.Firstname + " "
         salary['Date'] = Date
