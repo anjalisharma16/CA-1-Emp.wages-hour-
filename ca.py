@@ -14,6 +14,7 @@ class Employee:
     Higher_rate = 0.4
     
 def __init__(self, staffId, Firstname, Lastname, Reghours, Hourlyrate, OTMultiple, Taxcredit, Standardband):
+        self.Employees = {}   
         self.staffId = int(staffId)
         self.Firstname = str(Firstname)
         self.Lastname = str(Lastname)
@@ -52,4 +53,8 @@ def computepayment(self, Hoursworked, Date):
         salary['Net tax'] =round(salary['Total tax'] - salary['Tax credit'], 2)#To calculate Net tax
         salary['PRSI'] = salary['Gross pay'] * 0.4#To calculate PRSI
         return salary
+
+Employee.configure('Employees.txt')
+jg = Employee('12345','Green','Joe',37,16,1.5,72,710)
+jg.ComputePayment(42,'31/10/2021')
 
