@@ -8,12 +8,13 @@ with open('Hours.txt','w') as f1:
     f1.close()
 
 #create employee class and attributes
+@classmethod
 class Employee:
     Employees = {}
     Std_rate = 0.2
     Higher_rate = 0.4
     
-def __init__(self, staffId, Firstname, Lastname, Reghours, Hourlyrate, OTMultiple, Taxcredit, Standardband):
+    def __init__(self, staffId, Firstname, Lastname, Reghours, Hourlyrate, OTMultiple, Taxcredit, Standardband):
         self.Employees = {}   
         self.staffId = int(staffId)
         self.Firstname = str(Firstname)
@@ -25,13 +26,13 @@ def __init__(self, staffId, Firstname, Lastname, Reghours, Hourlyrate, OTMultipl
         self.Standardband = int(Standardband)
 
 
-def configure(Employeesfile):
+    def configure(Employeesfile):
         with open(Employeesfile) as f:
             for line in f:
                 staffId,Firstname,Lastname,Reghours,Hourlyrate,OTMultiple,Taxcredit,Standardband = line.split()
                 Employee.Employees[staffId] = Employee(staffId,Firstname,Lastname,int(Reghours),int(Hourlyrate),float(OTMultiple),int(Taxcredit),int(Standardband))
 
-def computepayment(self, Hoursworked, Date):
+    def computepayment(self, Hoursworked, Date):
         salary = dict()
         salary['Name'] = self.Firstname + " "
         salary['Date'] = Date
@@ -54,7 +55,5 @@ def computepayment(self, Hoursworked, Date):
         salary['PRSI'] = salary['Gross pay'] * 0.4#To calculate PRSI
         return salary
 
-Employee.configure('Employees.txt')
-jg = Employee('12345','Green','Joe',37,16,1.5,72,710)
-jg.ComputePayment(42,'31/10/2021')
+# jg=Employee(12345,'Green','Joe',37,16,1.5,72,710)
 
